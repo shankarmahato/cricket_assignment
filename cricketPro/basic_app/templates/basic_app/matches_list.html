@@ -1,0 +1,25 @@
+{% extends "basic_app/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <h2>Match List</h2>         
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Match</th>
+        <th>Venue</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for match in matches_list %}
+      <tr>
+        <td><a href="{% url 'match_detail' pk=match.id %}">{{ match }}</a></td>
+        <td>{{ match.venue }}</td>
+        <td>{{ match.date }}</td>
+      </tr>
+     {% endfor %} 
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

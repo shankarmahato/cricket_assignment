@@ -1,0 +1,33 @@
+{% extends "basic_app/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <h2>PLayer History</h2>         
+  <table class="table table-striped">
+    <thead>
+      <tr>
+       <th>Player</th>
+        <th>Matches</th>
+        <th>Run</th>
+        <th>Fifty</th>
+        <th>Hundred</th>
+        <th>Highest Score</th>
+        <th>Wicket</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for player_hist in playerstats_list %}
+      <tr>
+        <td>{{ player_hist.player }}</td>
+        <td>{{ player_hist.matches }}</td>
+        <td>{{ player_hist.runs }}</td>
+        <td>{{ player_hist.fifty }}</td>
+        <td>{{ player_hist.hundred }}</td>
+        <td>{{ player_hist.highest_score }}</td>
+        <td>{{ player_hist.wicket }}</td>
+      </tr>
+     {% endfor %} 
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

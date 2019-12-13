@@ -1,0 +1,42 @@
+{% extends "basic_app/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+  <div class="jumbotron display-t">
+    <div class="display-tc" style="width:30%;padding-right:3rem;vertical-align:middle;">
+    <img class="card-img-top" src="{{ team.logo.url }}" alt="Card image cap">
+    </div>
+    <div class="display-tc"style="width:69%;padding-left:3rem">
+    <h2>Team:{{team.name}}</h2>
+    <p>Club/State:{{team.club_state}}</p>
+    </div>
+  </div>
+  <h5>Players List</h5> 
+  <a href="{% url 'player-add' pk=team.id%}" class="btn btn-default" role="button">Add a New Player</a>         
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Jersy Number</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for pl in player %}
+      <tr>
+        <td><img class="card-img-top" src="{{ pl.image.url }}" alt="Card image cap" height="50" width="50"></td>
+        <td>{{ pl.first_name }}</td>
+        <td>{{ pl.last_name }}</td>
+        <td>{{ pl.jersy_number }}</td>
+        <td>{{ pl.country }}</td>
+        <td><a href="{% url 'player-update' pk=pl.id %}" class="btn btn-default" role="button">Update Player Info</a> </td>
+        <td><a href="{% url 'player-delete' pk=pl.id %}" class="btn btn-default" role="button">Remove Player</a> </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+{% endblock content %}

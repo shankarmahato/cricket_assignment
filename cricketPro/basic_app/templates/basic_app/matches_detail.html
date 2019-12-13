@@ -1,0 +1,13 @@
+{% extends "basic_app/base.html" %}
+{% load static %}
+{% block content %}
+<div class='container'>
+<div class="panel panel-default">
+  <div class="panel-body">
+  <h5>Match No:{{match.id}}</h4>
+  <h6>{{match}}</h6></div>
+  <div class="panel-footer">{{winner}}</div>
+</div>
+</div>
+
+{% endblock content %}

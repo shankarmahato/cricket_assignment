@@ -1,0 +1,19 @@
+{% extends "basic_app/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <h5>List of Teams</h5> 
+  <div>
+{% for team in team_list %}
+  <div class="card">
+    <a href="{% url 'team_identity' pk=team.id %}">
+    <img class="card-img-top" src="{{team.logo.url}}" alt="Card image cap">
+    </a>
+    <div class="card-body">
+        <h5 class="card-title" ><a href="{% url 'team_identity' pk=team.id %}">{{team.name}}</a></h5>
+    </div>
+  </div>
+{% endfor %}
+</div>
+</div>
+{% endblock content %}
